@@ -1,5 +1,5 @@
 var calendar = {
-    createEvent: function(title, location, notes, startDate, endDate, successCallback, errorCallback) {
+    createEvent: function(successCallback, errorCallback) {
         cordova.exec(
             successCallback, // success callback function
             errorCallback, // error callback function
