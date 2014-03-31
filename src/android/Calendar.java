@@ -5,6 +5,7 @@ import org.apache.cordova.CordovaPlugin;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
+import android.net.Uri;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -22,7 +23,7 @@ public class Calendar extends CordovaPlugin {
                 sendIntent.setData(Uri.parse("sms:"));
                 sendIntent.putExtra("sms_body", smsText);
 
-                this.cordova.getActivity().startActivity(calIntent);
+                this.cordova.getActivity().startActivity(sendIntent);
                 callbackContext.success();
                 return true;
             }
