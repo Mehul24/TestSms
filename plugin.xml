@@ -10,17 +10,17 @@
 
 
     <js-module src="www/ContactUs.js" name="ContactUs">
-        <clobbers target="window.sendSms" />      <!--Same as the module.export value-->
+        <clobbers target="window.sendSms" />
     </js-module>
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="ContactUs">
-                <param name="android-package" value="com.discotech.contact.Contact"/>
+            <feature name="Calendar">
+                <param name="android-package" value="com.discotech.contact.SendSms"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/Contact.java" target-dir="src/com/discotech/contact" />      
-    </platform>          
+        <source-file src="src/android/Calendar.java" target-dir="src/com/discotech/contact" />      
+     </platform>          
 </plugin>

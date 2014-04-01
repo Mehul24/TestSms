@@ -1,4 +1,4 @@
-package com.discotech.contact;
+package org.devgirl.calendar;
  
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -10,14 +10,13 @@ import android.net.Uri;
 import android.app.Activity;
 import android.content.Intent;
 
-public class Contact extends CordovaPlugin {
-    public static final String ACTION_TEXT_US = "openSmsView";
-    public static final String ACTION_EMAIL_US = "openEmailView";
-    public static final String ACTION_CALL_US = "openDialView";
+public class Calendar extends CordovaPlugin {
+    public static final String ACTION_ADD_CALENDAR_ENTRY = "addCalendarEntry";
+    
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try {
-            if (ACTION_TEXT_US.equals(action)) { 
+            if (ACTION_ADD_CALENDAR_ENTRY.equals(action)) { 
                 JSONObject arg_object = args.getJSONObject(0);
                 String smsText = "Some text for the sms";
                 Intent sendIntent = new Intent(Intent.ACTION_VIEW);

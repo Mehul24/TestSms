@@ -3,8 +3,8 @@ var sendSms = {
         cordova.exec(
             successCallback, // success callback function
             errorCallback, // error callback function
-            'Contact', 
-            'openSmsView', // with this action name
+            'Calendar', 
+            'addCalendarEntry', // with this action name
             [{   
             }]
         ); 
