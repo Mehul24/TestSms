@@ -22,5 +22,5 @@
         </config-file>
 
         <source-file src="src/android/Contact.java" target-dir="src/com/discotech/contact" />      
-     </platform>          
+    </platform>          
 </plugin>
