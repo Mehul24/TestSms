@@ -43,7 +43,8 @@ public class Contact extends CordovaPlugin {
                 return true;
             }
             else if(ACTION_EMAIL_US.equals(action)) {
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                Intent emailIntent = new Intent(Intent.ACTION_VIEW);
+                emailIntent.setData(Uri.parse("mailto:"));
                 emailIntent.setType("text/plain");
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, email);
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Contact Discotech");
