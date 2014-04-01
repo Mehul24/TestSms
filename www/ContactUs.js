@@ -23,6 +23,16 @@ contact.callUs = function(successCallback, errorCallback) {
         }]
     ); 
 };
+
+contact.emailUs = function(successCallback, errorCallback) {
+    console.log('Inside email contact');
+    cordova.exec(
+        successCallback,
+        errorCallback,
+        'Contact',
+        'openEmailView',
+        [{}]
+    );
+};
     
 module.exports = contact;
-// module.exports = call;

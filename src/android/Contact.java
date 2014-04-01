@@ -13,10 +13,12 @@ import android.content.Intent;
 public class Contact extends CordovaPlugin {
     public static final String ACTION_TEXT_US = "openSmsView";
     public static final String ACTION_CALL_US = "openCallView";
+    public static final String ACTION_EMAIL_US = "openEmailView";
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try {
             String phone = "4157356716";
+            String email = "info@discotech.me";
 
             if (ACTION_TEXT_US.equals(action)) { 
                 JSONObject arg_object = args.getJSONObject(0);
@@ -31,13 +33,22 @@ public class Contact extends CordovaPlugin {
                 callbackContext.success();
                 return true;
             }
-
-            if(ACTION_CALL_US.equals(action)) {
+            else if(ACTION_CALL_US.equals(action)) {
                 Intent callIntent = new Intent(Intent.ACTION_DIAL);
                 callIntent.setData(Uri.parse("tel:"+phone));
                 callIntent.putExtra("exit_on_sent", true);
 
                 this.cordova.getActivity().startActivity(callIntent);
+                callbackContext.success();
+                return true;
+            }
+            else if(ACTION_EMAIL_US.equals(action)) {
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setType("text/plain");
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, +email);
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Contact Discotech");
+                
+                this.cordova.getActivity().startActivity(emailIntent);
                 callbackContext.success();
                 return true;
             }
