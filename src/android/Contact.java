@@ -30,8 +30,8 @@ public class Contact extends CordovaPlugin {
             }
 
             if(ACTION_CALL_US.equals(action)) {
-                Intent i = new Intent(Intent.ACTION_DIAL, null);
-                this.cordova.getActivity().startActivity(sendIntent);
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, null);
+                this.cordova.getActivity().startActivity(callIntent);
                 callbackContext.success();
                 return true;
             }
