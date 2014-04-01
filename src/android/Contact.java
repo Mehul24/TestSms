@@ -45,7 +45,7 @@ public class Contact extends CordovaPlugin {
             else if(ACTION_EMAIL_US.equals(action)) {
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setType("text/plain");
-                emailIntent.putExtra(Intent.EXTRA_EMAIL, +email);
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, email);
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Contact Discotech");
                 
                 this.cordova.getActivity().startActivity(emailIntent);
