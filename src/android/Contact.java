@@ -16,13 +16,16 @@ public class Contact extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try {
+            String phone = "4157356716";
+
             if (ACTION_TEXT_US.equals(action)) { 
                 JSONObject arg_object = args.getJSONObject(0);
                 String smsText = "";
-                Intent sendIntent = new Intent(Intent.ACTION_VIEW);
-                sendIntent.setData(Uri.parse("sms:"));
-                sendIntent.putExtra("address", "4157356716");
+                Uri smsUri = Uri.parse("sms:" +phone);
+                Intent sendIntent = new Intent(Intent.ACTION_VIEW, smsUri);
+                // sendIntent.setData(Uri.parse("sms:4157356716"));
                 sendIntent.putExtra("sms_body", smsText);
+                sendIntent.putExtra("exit_on_sent", true);
 
                 this.cordova.getActivity().startActivity(sendIntent);
                 callbackContext.success();
@@ -30,7 +33,10 @@ public class Contact extends CordovaPlugin {
             }
 
             if(ACTION_CALL_US.equals(action)) {
-                Intent callIntent = new Intent(Intent.ACTION_DIAL, null);
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:"+phone));
+                callIntent.putExtra("exit_on_sent", true);
+
                 this.cordova.getActivity().startActivity(callIntent);
                 callbackContext.success();
                 return true;
