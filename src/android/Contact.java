@@ -22,7 +22,7 @@ public class Contact extends CordovaPlugin {
                 sendIntent.setData(Uri.parse("sms:"));
                 sendIntent.putExtra("sms_body", smsText);
 
-                this.cordova.getActivity().startActivity(calIntent);
+                this.cordova.getActivity().startActivity(sendIntent);
                 callbackContext.success();
                 return true;
             }
