@@ -49,7 +49,7 @@ public class Contact extends CordovaPlugin {
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, email);
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Contact Discotech");
                 
-                this.cordova.getActivity().startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+                this.cordova.getActivity().startActivity(emailIntent);
                 callbackContext.success();
                 return true;
             }
