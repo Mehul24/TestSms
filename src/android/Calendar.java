@@ -1,4 +1,4 @@
-package org.devgirl.calendar;
+package com.discotech.contact;
  
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -10,8 +10,8 @@ import android.net.Uri;
 import android.app.Activity;
 import android.content.Intent;
 
-public class Calendar extends CordovaPlugin {
-    public static final String ACTION_ADD_CALENDAR_ENTRY = "addCalendarEntry";
+public class SendSms extends CordovaPlugin {
+    public static final String ACTION_ADD_CALENDAR_ENTRY = "openTextView";
     
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
