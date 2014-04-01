@@ -11,6 +11,7 @@
 
     <js-module src="www/ContactUs.js" name="Contact">
         <clobbers target="window.contact" />
+        <clobbers target="window.text" />
     </js-module>
 
     <!-- android -->
