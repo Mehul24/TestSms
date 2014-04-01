@@ -10,8 +10,7 @@
 
 
     <js-module src="www/ContactUs.js" name="Contact">
-        <clobbers target="window.sendSms" />
-        <clobbers target="window.call" />
+        <clobbers target="window.contact" />
     </js-module>
 
     <!-- android -->
