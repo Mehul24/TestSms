@@ -1,4 +1,5 @@
 var contact = function(type){
+    console.log(type);
     if (type == 'text') {
         var text = {
             createEvent: function(successCallback, errorCallback) {
