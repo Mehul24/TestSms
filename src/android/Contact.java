@@ -12,7 +12,8 @@ import android.content.Intent;
 
 public class Contact extends CordovaPlugin {
     public static final String ACTION_TEXT_US = "openSmsView";
-    
+    public static final String ACTION_EMAIL_US = "openEmailView";
+    public static final String ACTION_CALL_US = "openDialView";
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try {
