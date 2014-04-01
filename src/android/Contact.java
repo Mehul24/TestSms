@@ -11,22 +11,31 @@ import android.app.Activity;
 import android.content.Intent;
 
 public class Contact extends CordovaPlugin {
-    public static final String ACTION_ADD_CALENDAR_ENTRY = "addCalendarEntry";
-    
+    public static final String ACTION_TEXT_US = "openSmsView";
+    public static final String ACTION_CALL_US = "openCallView";
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try {
-            if (ACTION_ADD_CALENDAR_ENTRY.equals(action)) { 
+            if (ACTION_TEXT_US.equals(action)) { 
                 JSONObject arg_object = args.getJSONObject(0);
-                String smsText = "Some text for the sms";
+                String smsText = "";
                 Intent sendIntent = new Intent(Intent.ACTION_VIEW);
                 sendIntent.setData(Uri.parse("sms:"));
+                sendIntent.putExtra("address", "4157356716");
                 sendIntent.putExtra("sms_body", smsText);
 
                 this.cordova.getActivity().startActivity(sendIntent);
                 callbackContext.success();
                 return true;
             }
+
+            if(ACTION_CALL_US.equals(action)) {
+                Intent i = new Intent(Intent.ACTION_DIAL, null);
+                this.cordova.getActivity().startActivity(sendIntent);
+                callbackContext.success();
+                return true;
+            }
+
             callbackContext.error("Invalid action");
             return false;
         } catch(Exception e) {
