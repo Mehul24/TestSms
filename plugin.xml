@@ -9,8 +9,8 @@
     <keywords>phonegap,calendar</keywords>
 
 
-    <js-module src="www/calendar.js" name="Calendar">
-        <clobbers target="window.calendar" />
+    <js-module src="www/ContactUs.js" name="ContactUs">
+        <clobbers target="window.sendSms" />
     </js-module>
 
     <!-- android -->
