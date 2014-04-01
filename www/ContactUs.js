@@ -15,9 +15,9 @@ var contact = function(type){
             }
         };      
     }
-    else if (type == 'call') {
+    else if ( type == 'call') {
+        console.log('inside call contact');
         var call = {
-            console.log('inside call contact');
             createEvent: function(successCallback, errorCallback) {
                 cordova.exec(
                     successCallback, // success callback function
@@ -30,6 +30,7 @@ var contact = function(type){
             }
         };  
     }
+    
 };
 
 
