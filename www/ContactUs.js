@@ -1,37 +1,40 @@
-var contact = function(type){
+var contact = function(){};
+
+contact.textUs = function(){
     console.log(type);
-    if (type == 'text') {
-        console.log('inside text contact');
-        var text = {
-            createEvent: function(successCallback, errorCallback) {
-                cordova.exec(
-                    successCallback, // success callback function
-                    errorCallback, // error callback function
-                    'Contact', 
-                    'openSmsView', // with this action name
-                    [{   
-                    }]
-                );
-            }
-        };      
-    }
-    else if ( type == 'call') {
-        console.log('inside call contact');
-        var call = {
-            createEvent: function(successCallback, errorCallback) {
-                cordova.exec(
-                    successCallback, // success callback function
-                    errorCallback, // error callback function
-                    'Contact', 
-                    'openCallView', // with this action name
-                    [{   
-                    }]
-                ); 
-            }
-        };  
-    }
-    
+    console.log('inside text contact');
+    var text = {
+        createEvent: function(successCallback, errorCallback) {
+            cordova.exec(
+                successCallback, // success callback function
+                errorCallback, // error callback function
+                'Contact', 
+                'openSmsView', // with this action name
+                [{   
+                }]
+            );
+        }
+    };     
 };
+
+contact.callUs = function() {
+    console.log('inside call contact');
+    var call = {
+        createEvent: function(successCallback, errorCallback) {
+            cordova.exec(
+                successCallback, // success callback function
+                errorCallback, // error callback function
+                'Contact', 
+                'openCallView', // with this action name
+                [{   
+                }]
+            ); 
+        }
+    };  
+};
+    
+    
+
 
 
 module.exports = contact;
